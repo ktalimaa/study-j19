@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {School} from "../../app/shared/models/School";
-import {SchoolService} from "../../app/shared/services/school.service";
+import {SchoolService} from "../../app/shared/service/school.service";
 
 @Component({
   selector: 'app-school-dashboard',
   templateUrl: './school-dashboard.component.html',
   styleUrls: ['./school-dashboard.component.css']
 })
-export class SchoolDashboardComponent implements OnInit{
+export class SchoolDashboardComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'address', 'phone'];
   dataSource: School[] = [];
 
