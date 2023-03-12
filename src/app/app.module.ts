@@ -12,13 +12,18 @@ import {AppInterceptor} from "./shared/interceptor/app.interceptor";
 import { MessageSnackbarComponent } from './message-snackbar/message-snackbar.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatButtonModule} from "@angular/material/button";
+import {ViewSchoolComponent} from "../school/view-school/view-school.component";
 
 const appRoutes: Routes = [
   {
     path: 'school',
     component: SchoolDashboardComponent
-  }
+  },
+  { path: '', component: SchoolDashboardComponent },
+  { path: 'view-school/:id', component: ViewSchoolComponent },
+  { path: '**', redirectTo: '' }
 ]
+
 @NgModule({
   declarations: [
     AppComponent,

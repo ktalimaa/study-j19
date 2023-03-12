@@ -4,7 +4,6 @@ import {Message} from "../../app/shared/models/Message";
 import {MessageType} from "../../app/shared/models/MessageType";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MessageSnackbarComponent} from "../../app/message-snackbar/message-snackbar.component";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 import {SchoolService} from "../../app/shared/service/school.service";
 
 @Component({
@@ -12,7 +11,7 @@ import {SchoolService} from "../../app/shared/service/school.service";
   templateUrl: './school-dashboard.component.html',
   styleUrls: ['./school-dashboard.component.css']
 })
-export class SchoolDashboardComponent implements OnInit{
+export class SchoolDashboardComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'address', 'phone', 'active'];
   dataSource: School[] = [];
   message: Message;
@@ -25,7 +24,7 @@ export class SchoolDashboardComponent implements OnInit{
     this.schoolService.getAllSchools().subscribe(value => {
         this.dataSource = value;
 
-        if(value.length == 0) {
+        if (value.length == 0) {
           this.message = new Message(MessageType.info, "No schools found!");
           this.openSnackBar();
         }
@@ -43,16 +42,20 @@ export class SchoolDashboardComponent implements OnInit{
     });
   }
 
-  deleteSchool(id: number) : void {
-    this.schoolService.deleteSchoolById(id).subscribe(value => {this.ngOnInit()},
+  deleteSchool(id: number): void {
+    this.schoolService.deleteSchoolById(id).subscribe(value => {
+        this.ngOnInit()
+      },
       error1 => {
         this.message = new Message(MessageType.error, "Technical Error!");
         this.openSnackBar();
       });
   }
 
-  restoreSchool(id: number) : void {
-    this.schoolService.restoreSchoolById(id).subscribe(value => {this.ngOnInit()},
+  restoreSchool(id: number): void {
+    this.schoolService.restoreSchoolById(id).subscribe(value => {
+        this.ngOnInit()
+      },
       error1 => {
         this.message = new Message(MessageType.error, "Technical Error!");
         this.openSnackBar();
