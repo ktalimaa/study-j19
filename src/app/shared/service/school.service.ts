@@ -27,4 +27,8 @@ export class SchoolService {
     return this.httpClient.get<any>(this.SCHOOL_BASE_URL + '/restore/' + id);
   }
 
+  public viewSchoolById(id: number): Observable<any> {
+    return this.httpClient.get<any>(this.SCHOOL_BASE_URL + '/view/' + id);
+  }
+
 }

@@ -61,4 +61,15 @@ export class SchoolDashboardComponent implements OnInit {
         this.openSnackBar();
       });
   }
+
+  viewSchool(id: number): void {
+    this.schoolService.viewSchoolById(id).subscribe(value => {
+        this.ngOnInit()
+      },
+      error1 => {
+        this.message = new Message(MessageType.error, "Technical Error!");
+        this.openSnackBar();
+      });
+  }
+
 }
