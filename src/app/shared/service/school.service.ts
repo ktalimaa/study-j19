@@ -31,4 +31,8 @@ export class SchoolService {
     return this.httpClient.get<any>(this.SCHOOL_BASE_URL + '/view/' + id);
   }
 
+  public createSchool(id: number): Observable<any> {
+    return this.httpClient.get<any>(this.SCHOOL_BASE_URL + '/create');
+  }
+
 }
